@@ -5,18 +5,47 @@
     box-sizing: border-box;
 }
 
+/* Custom color variables */
+:root {
+    --light-blue: #93b7beff;
+    --brunswick-green: #065143ff;
+    --mint-cream: #f1fffaff;
+    --timberwolf: #d5c7bcff;
+    --rose-taupe: #785964ff;
+    --onyx: #454545ff;
+
+    /* CSS HSL */
+    --light-blue: hsla(190, 25%, 66%, 1);
+    --brunswick-green: hsla(169, 86%, 17%, 1);
+    --mint-cream: hsla(159, 100%, 97%, 1);
+    --timberwolf: hsla(26, 23%, 79%, 1);
+    --rose-taupe: hsla(339, 15%, 41%, 1);
+    --onyx: hsla(0, 0%, 27%, 1);
+
+    /* Primary color */
+    --primary-color: var(--mint-cream);
+
+    /* Secondary color */
+    --secondary-color: var(--brunswick-green);
+
+    /* Accent colors */
+    --accent-color-1: var(--timberwolf);
+    --accent-color-2: var(--rose-taupe);
+    --accent-color-3: var(--onyx);
+}
+
 /* Basic styles for the body */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
+    background-color: var(--primary-color);
+    color: var(--accent-color-1);
     line-height: 1.6;
 }
 
 /* Header styles */
 header {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--accent-color-1);
     padding: 10px 20px;
     text-align: center;
 }
@@ -30,34 +59,42 @@ nav {
 }
 
 nav button {
-    background-color: #fff;
-    color: #007bff;
-    border: 1px solid #007bff;
+    background-color: var(--accent-color-1);
+    color: var(--secondary-color);
+    border: 1px solid var(--accent-color-1);
     padding: 8px 16px;
     margin-right: 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 nav button:hover {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--accent-color-2);
 }
 
 /* Main content styles */
 main {
-    margin: 20px auto;
-    max-width: 960px;
+    margin: 20px 20px auto 20px;
     padding: 0 20px;
+    background-color: var(--accent-color-1);
+    min-height: 50vh;
+    color: var(--secondary-color);
+    border-radius: 5px;
 }
 
 section {
     margin-bottom: 30px;
+    background-color: var(--accent-color-2);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Footer styles */
 footer {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--accent-color-2);
     text-align: center;
     padding: 10px 0;
 }
