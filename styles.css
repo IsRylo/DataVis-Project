@@ -1,116 +1,133 @@
-/* Reset default margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 /* Custom color variables */
 :root {
-    --light-blue: #93b7beff;
-    --brunswick-green: #065143ff;
-    --mint-cream: #f1fffaff;
-    --timberwolf: #d5c7bcff;
-    --rose-taupe: #785964ff;
-    --onyx: #454545ff;
-
-    /* CSS HSL */
-    --light-blue: hsla(190, 25%, 66%, 1);
-    --brunswick-green: hsla(169, 86%, 17%, 1);
-    --mint-cream: hsla(159, 100%, 97%, 1);
-    --timberwolf: hsla(26, 23%, 79%, 1);
-    --rose-taupe: hsla(339, 15%, 41%, 1);
-    --onyx: hsla(0, 0%, 27%, 1);
-
-    /* Primary color */
-    --primary-color: var(--mint-cream);
-
-    /* Secondary color */
-    --secondary-color: var(--brunswick-green);
-
-    /* Accent colors */
-    --accent-color-1: var(--timberwolf);
-    --accent-color-2: var(--rose-taupe);
-    --accent-color-3: var(--onyx);
+    --primary-color: #2f404d;
+    --secondary-color: #fff69f;
+    --accent-color: #351409;
+    --highlight-color: #fdd870;
+    --text-color: #c4ffff;
 }
 
-/* Basic styles for the body */
+/* #490727,#4b064a,#0e253e,#0f3e28,#3b6d0c */
+
+/* Global styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--primary-color);
-    color: var(--accent-color-1);
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
 }
 
 /* Header styles */
 header {
-    background-color: var(--secondary-color);
-    color: var(--accent-color-1);
-    padding: 10px 20px;
-    text-align: center;
-}
-
-header h1 {
-    margin-bottom: 10px;
-}
-
-nav {
-    margin-top: 10px;
-}
-
-nav button {
-    background-color: var(--accent-color-1);
-    color: var(--secondary-color);
-    border: 1px solid var(--accent-color-1);
-    padding: 8px 16px;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-nav button:hover {
-    background-color: var(--accent-color-2);
-    color: var(--accent-color-1);
-}
-
-/* Main content styles */
-main {
-    margin: 20px 20px auto 20px;
-    padding: 0 20px;
-    background-color: var(--accent-color-1);
-    min-height: 50vh;
-    color: var(--secondary-color);
-    border-radius: 5px;
-}
-
-section {
-    margin-bottom: 30px;
-    background-color: var(--accent-color-2);
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-
-/* Footer styles */
-footer {
-    background-color: var(--primary-color);
-    color: var(--accent-color-2);
-    text-align: center;
+    background-color: var(--highlight-color);
+    color: var(--text-color);
     padding: 10px 0;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    header {
-        padding: 10px;
-    }
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-    nav button {
-        margin-bottom: 10px;
-    }
+h1 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--accent-color);
+}
 
-    main {
-        padding: 0 10px;
-    }
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--accent-color);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: var(--text-color);
+}
+
+.btn:hover {
+    filter: brightness(90%);
+}
+
+/* Index page specific styles */
+body.index {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+a.index {
+    color: var(--highlight-color);
+}
+
+.btn.index {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.btn.index:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Map page specific styles */
+body.map {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+a.map {
+    color: var(--secondary-color);
+}
+
+.btn.map {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.btn.map:hover {
+    background-color: var(--secondary-color);
+}
+
+#map-container {
+    margin-top: 10px;
+    background-color: var(--highlight-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

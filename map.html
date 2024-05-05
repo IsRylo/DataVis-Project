@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to G7 Countries GDP Heatmap</title>
+    <title>G7 Countries GDP Heatmap</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="index">
+<body class="map">
     <header>
         <div class="container">
-            <h1>Welcome to G7 Countries GDP Heatmap</h1>
+            <h1>G7 Countries GDP Heatmap</h1>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="map.html">GDP Heatmap</a>
+                <!-- <a href="aboutus.html">About Us</a> -->
             </nav>
         </div>
     </header>
 
     <div class="container">
-        <p>Explore the economic data of G7 countries with our interactive heatmap.</p>
+        <div id="map-container"></div>
     </div>
-
-    <footer>
-        <p>&copy; 2024 Loysing Ryono Ismanto and V K A Hasitha Chamodya Kuruppu</p>
-    </footer>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/app.js" type="module"></script>
 </body>
 </html>
