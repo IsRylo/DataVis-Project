@@ -29,38 +29,40 @@
 
 // d3.select("#unemploymentButton").on("click", () => {console.log("Clicked")})
 
-// Sample GeoJSON data for illustration (replace with actual data)
-const worldMapData = 'js/countries_geolocation.json';
-const g7Countries = ['USA', 'CAN', 'FRA', 'DEU', 'ITA', 'JPN', 'GBR']; // Country codes
+// Setting up the svg
+const width = 200;
+const height = 200;
 
-// Sample GDP data (replace with actual data)
-const gdpData = {
-    'USA': 21427, // Example GDP value for USA
-    'CAN': 17378,
-    'FRA': 2826,
-    'DEU': 4143,
-    'ITA': 2037,
-    'JPN': 5170,
-    'GBR': 2827
+const padding = {
+    top: 5,
+    left: 5,
+    right: 5,
+    bottom: 5
 };
 
+// Set the colour schema
+const colorSchema = d3.scaleQuantize()
+                        .range(['#fef0d9','#fdcc8a','#fc8d59','#e34a33','#b30000']);
+
+// Selecting the svg
+const mapSVG = d3.select('#map-container').append('svg')
+                    .attr('width', width)
+                    .attr('height', height);
+
+const worldMapData = 'data/countries_geolocation.json';
+const g7Countries = ['USA', 'CAN', 'FRA', 'DEU', 'ITA', 'JPN', 'GBR']; // Country codes
 
 // Load GeoJSON data and create map
 d3.json(worldMapData).then(function(data) {
-    // Create SVG element
-    const svg = d3.select('#map-container').append('svg')
-        .attr('width', 800)
-        .attr('height', 500);
-
     // Create a projection (e.g., Mercator projection)
     const projection = d3.geoMercator()
-        .fitSize([800, 500], data);
+        .fitSize([width, height], data);
 
     // Create a path generator
     const path = d3.geoPath().projection(projection);
 
     // Plot world map
-    svg.selectAll('path')
+    mapSVG.selectAll('path')
         .data(data.features)
         .enter()
         .append('path')
@@ -74,6 +76,4 @@ d3.json(worldMapData).then(function(data) {
         })
         .attr('stroke', '#fff')
         .attr('stroke-width', 0.5);
-
-    // Add tooltips for GDP (not implemented in this example)
 });

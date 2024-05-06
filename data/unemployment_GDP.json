@@ -1,0 +1,17 @@
+{
+   "CAN" : {
+         "2010": {"GDP": 40099, "unemployment": 8.18 },
+         "2011": {"GDP": 41667, "unemployment": 7.63 },
+         "2012": {"GDP": 42291, "unemployment": 7.40 },
+         "2013": {"GDP": 44299, "unemployment": 7.15 },
+         "2014": {"GDP": 45754, "unemployment": 7.03 },
+         "2015": {"GDP": 44670, "unemployment": 6.94 },
+         "2016": {"GDP": 46472, "unemployment": 7.03 },
+         "2017": {"GDP": 48317, "unemployment": 6.42 },
+         "2018": {"GDP": 49993, "unemployment": 5.84 },
+         "2019": {"GDP": 50522, "unemployment": 5.69 },
+         "2020": {"GDP": 48381, "unemployment": 9.69 },
+         "2021": {"GDP": 55634, "unemployment": 7.54 },
+         "2022": {"GDP": 61381, "unemployment": 5.30 }
+   } 
+}

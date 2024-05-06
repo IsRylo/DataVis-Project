@@ -1,4 +1,10 @@
 GDP Data
+
+TO DO:
+Canada GDP is done, other GDP countries need some restructuring to JSON
+
+
+
 const canadaGDPData = [
   { year: 2010, GDP: 40099 },
   { year: 2011, GDP: 41667 },
