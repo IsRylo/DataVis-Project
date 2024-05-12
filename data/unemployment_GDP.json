@@ -1,17 +1,380 @@
 {
-   "CAN" : {
-         "2010": {"GDP": 40099, "unemployment": 8.18 },
-         "2011": {"GDP": 41667, "unemployment": 7.63 },
-         "2012": {"GDP": 42291, "unemployment": 7.40 },
-         "2013": {"GDP": 44299, "unemployment": 7.15 },
-         "2014": {"GDP": 45754, "unemployment": 7.03 },
-         "2015": {"GDP": 44670, "unemployment": 6.94 },
-         "2016": {"GDP": 46472, "unemployment": 7.03 },
-         "2017": {"GDP": 48317, "unemployment": 6.42 },
-         "2018": {"GDP": 49993, "unemployment": 5.84 },
-         "2019": {"GDP": 50522, "unemployment": 5.69 },
-         "2020": {"GDP": 48381, "unemployment": 9.69 },
-         "2021": {"GDP": 55634, "unemployment": 7.54 },
-         "2022": {"GDP": 61381, "unemployment": 5.30 }
-   } 
+  "CAN": {
+    "2010": {
+      "GDP": 40099,
+      "unemployment": 8.18
+    },
+    "2011": {
+      "GDP": 41667,
+      "unemployment": 7.63
+    },
+    "2012": {
+      "GDP": 42291,
+      "unemployment": 7.4
+    },
+    "2013": {
+      "GDP": 44299,
+      "unemployment": 7.15
+    },
+    "2014": {
+      "GDP": 45754,
+      "unemployment": 7.03
+    },
+    "2015": {
+      "GDP": 44670,
+      "unemployment": 6.94
+    },
+    "2016": {
+      "GDP": 46472,
+      "unemployment": 7.03
+    },
+    "2017": {
+      "GDP": 48317,
+      "unemployment": 6.42
+    },
+    "2018": {
+      "GDP": 49993,
+      "unemployment": 5.84
+    },
+    "2019": {
+      "GDP": 50522,
+      "unemployment": 5.69
+    },
+    "2020": {
+      "GDP": 48381,
+      "unemployment": 9.69
+    },
+    "2021": {
+      "GDP": 55634,
+      "unemployment": 7.54
+    },
+    "2022": {
+      "GDP": 61381,
+      "unemployment": 5.3
+    }
+  },
+  "FRA": {
+    "2010": {
+      "GDP": 35906,
+      "unemployment": 9.28
+    },
+    "2011": {
+      "GDP": 37448,
+      "unemployment": 9.22
+    },
+    "2012": {
+      "GDP": 37684,
+      "unemployment": 9.76
+    },
+    "2013": {
+      "GDP": 39528,
+      "unemployment": 10.3
+    },
+    "2014": {
+      "GDP": 40144,
+      "unemployment": 10.28
+    },
+    "2015": {
+      "GDP": 40830,
+      "unemployment": 10.35
+    },
+    "2016": {
+      "GDP": 42856,
+      "unemployment": 10.07
+    },
+    "2017": {
+      "GDP": 44445,
+      "unemployment": 9.43
+    },
+    "2018": {
+      "GDP": 46337,
+      "unemployment": 9.03
+    },
+    "2019": {
+      "GDP": 50962,
+      "unemployment": 8.43
+    },
+    "2020": {
+      "GDP": 49181,
+      "unemployment": 8.03
+    },
+    "2021": {
+      "GDP": 53463,
+      "unemployment": 7.88
+    },
+    "2022": {
+      "GDP": 57180,
+      "unemployment": 7.32
+    }
+  },
+  "GER": {
+    "2010": {
+      "GDP": 39670,
+      "unemployment": 6.58
+    },
+    "2011": {
+      "GDP": 42542,
+      "unemployment": 5.52
+    },
+    "2012": {
+      "GDP": 43360,
+      "unemployment": 5.08
+    },
+    "2013": {
+      "GDP": 44994,
+      "unemployment": 4.95
+    },
+    "2014": {
+      "GDP": 47011,
+      "unemployment": 4.71
+    },
+    "2015": {
+      "GDP": 47610,
+      "unemployment": 4.37
+    },
+    "2016": {
+      "GDP": 50579,
+      "unemployment": 3.91
+    },
+    "2017": {
+      "GDP": 53071,
+      "unemployment": 3.57
+    },
+    "2018": {
+      "GDP": 55196,
+      "unemployment": 3.21
+    },
+    "2019": {
+      "GDP": 58252,
+      "unemployment": 2.98
+    },
+    "2020": {
+      "GDP": 57905,
+      "unemployment": 3.63
+    },
+    "2021": {
+      "GDP": 61940,
+      "unemployment": 3.58
+    },
+    "2022": {
+      "GDP": 66616,
+      "unemployment": 3.07
+    }
+  },
+  "ITA": {
+    "2010": {
+      "GDP": 34834,
+      "unemployment": 8.54
+    },
+    "2011": {
+      "GDP": 36203,
+      "unemployment": 8.51
+    },
+    "2012": {
+      "GDP": 36091,
+      "unemployment": 10.88
+    },
+    "2013": {
+      "GDP": 36268,
+      "unemployment": 12.37
+    },
+    "2014": {
+      "GDP": 36476,
+      "unemployment": 12.82
+    },
+    "2015": {
+      "GDP": 37206,
+      "unemployment": 12
+    },
+    "2016": {
+      "GDP": 40267,
+      "unemployment": 11.75
+    },
+    "2017": {
+      "GDP": 41951,
+      "unemployment": 11.26
+    },
+    "2018": {
+      "GDP": 43428,
+      "unemployment": 10.6
+    },
+    "2019": {
+      "GDP": 46470,
+      "unemployment": 9.93
+    },
+    "2020": {
+      "GDP": 44202,
+      "unemployment": 9.3
+    },
+    "2021": {
+      "GDP": 49913,
+      "unemployment": 9.56
+    },
+    "2022": {
+      "GDP": 55373,
+      "unemployment": 8.07
+    }
+  },
+  "JPN": {
+    "2010": {
+      "GDP": 35343,
+      "unemployment": 5.05
+    },
+    "2011": {
+      "GDP": 36215,
+      "unemployment": 4.58
+    },
+    "2012": {
+      "GDP": 37629,
+      "unemployment": 4.35
+    },
+    "2013": {
+      "GDP": 39437,
+      "unemployment": 4.03
+    },
+    "2014": {
+      "GDP": 39560,
+      "unemployment": 3.59
+    },
+    "2015": {
+      "GDP": 40909,
+      "unemployment": 3.38
+    },
+    "2016": {
+      "GDP": 40643,
+      "unemployment": 3.12
+    },
+    "2017": {
+      "GDP": 41531,
+      "unemployment": 2.81
+    },
+    "2018": {
+      "GDP": 42265,
+      "unemployment": 2.44
+    },
+    "2019": {
+      "GDP": 42836,
+      "unemployment": 2.35
+    },
+    "2020": {
+      "GDP": 42568,
+      "unemployment": 2.77
+    },
+    "2021": {
+      "GDP": 44356,
+      "unemployment": 2.82
+    },
+    "2022": {
+      "GDP": 46917,
+      "unemployment": 2.6
+    }
+  },
+  "UK": {
+    "2010": {
+      "GDP": 36491,
+      "unemployment": 7.88
+    },
+    "2011": {
+      "GDP": 37209,
+      "unemployment": 8.13
+    },
+    "2012": {
+      "GDP": 38340,
+      "unemployment": 7.97
+    },
+    "2013": {
+      "GDP": 39968,
+      "unemployment": 7.6
+    },
+    "2014": {
+      "GDP": 41282,
+      "unemployment": 6.17
+    },
+    "2015": {
+      "GDP": 42501,
+      "unemployment": 5.35
+    },
+    "2016": {
+      "GDP": 44058,
+      "unemployment": 4.9
+    },
+    "2017": {
+      "GDP": 46061,
+      "unemployment": 4.42
+    },
+    "2018": {
+      "GDP": 47108,
+      "unemployment": 4.1
+    },
+    "2019": {
+      "GDP": 49941,
+      "unemployment": 3.83
+    },
+    "2020": {
+      "GDP": 48006,
+      "unemployment": 4.58
+    },
+    "2021": {
+      "GDP": 52846,
+      "unemployment": 4.53
+    },
+    "2022": {
+      "GDP": 56766,
+      "unemployment": 3.73
+    }
+  },
+  "US": {
+    "2010": {
+      "GDP": 48570,
+      "unemployment": 9.62
+    },
+    "2011": {
+      "GDP": 49952,
+      "unemployment": 8.95
+    },
+    "2012": {
+      "GDP": 51645,
+      "unemployment": 8.07
+    },
+    "2013": {
+      "GDP": 53117,
+      "unemployment": 7.38
+    },
+    "2014": {
+      "GDP": 54914,
+      "unemployment": 6.17
+    },
+    "2015": {
+      "GDP": 56521,
+      "unemployment": 5.29
+    },
+    "2016": {
+      "GDP": 57593,
+      "unemployment": 4.87
+    },
+    "2017": {
+      "GDP": 59589,
+      "unemployment": 4.35
+    },
+    "2018": {
+      "GDP": 62450,
+      "unemployment": 3.9
+    },
+    "2019": {
+      "GDP": 64690,
+      "unemployment": 3.67
+    },
+    "2020": {
+      "GDP": 63481,
+      "unemployment": 8.09
+    },
+    "2021": {
+      "GDP": 70181,
+      "unemployment": 5.37
+    },
+    "2022": {
+      "GDP": 76291,
+      "unemployment": 3.65
+    }
+  }
 }
