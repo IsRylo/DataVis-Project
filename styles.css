@@ -4,7 +4,7 @@
     --secondary-color: #fff69f;
     --accent-color: #351409;
     --highlight-color: #fdd870;
-    --text-color: #c4ffff;
+    --text-color: white;
 }
 
 /* #490727,#4b064a,#0e253e,#0f3e28,#3b6d0c */
@@ -121,7 +121,7 @@ a.map {
 
 #map-container {
     margin-top: 10px;
-    background-color: var(--highlight-color);
+    /* background-color: var(--highlight-color); */
     border-radius: 10px;
     overflow: hidden;
 }

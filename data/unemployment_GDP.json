@@ -5,7 +5,7 @@
       "unemployment": 8.18
     },
     "2011": {
-      "GDP": 41667,
+      "GDP": 41667, 
       "unemployment": 7.63
     },
     "2012": {
@@ -107,7 +107,7 @@
       "unemployment": 7.32
     }
   },
-  "GER": {
+  "DEU": {
     "2010": {
       "GDP": 39670,
       "unemployment": 6.58
@@ -269,7 +269,7 @@
       "unemployment": 2.6
     }
   },
-  "UK": {
+  "GBR": {
     "2010": {
       "GDP": 36491,
       "unemployment": 7.88
@@ -323,7 +323,7 @@
       "unemployment": 3.73
     }
   },
-  "US": {
+  "USA": {
     "2010": {
       "GDP": 48570,
       "unemployment": 9.62

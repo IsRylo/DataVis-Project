@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/IsRylo/DataVis-Project#readme",
   "dependencies": {
-    "d3": "^7.9.0"
+    "d3": "^7.9.0",
+    "d3-voronoi-treemap": "^1.1.2"
   }
 }
