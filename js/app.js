@@ -23,7 +23,7 @@ const tooltip = d3.select("#tooltip");
 
 // Setting up the svg container
 const width = 1000;
-const height = 500;
+const height = 700;
 
 // Setting up the padding
 const padding = {
@@ -75,8 +75,8 @@ d3.json(geoDataFile).then(function(geoData) {
 function drawWorldMap(geoData, gdpData, year) {
     // Create a projection (e.g., Mercator projection)
     const projection = d3.geoMercator()
-        .fitSize([svgWidth, svgHeight], geoData)
-        .translate([svgWidth / 2, svgHeight / 1.5]) // Adjust the translation to center and move the map up
+        //.fitSize([svgWidth, svgHeight], geoData);
+        .translate([svgWidth/2, svgHeight/1.5]) // Adjust the translation to center and move the map up
         .scale([svgWidth / (2 * Math.PI)]);    
 
     // Create a path generator
