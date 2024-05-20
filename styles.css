@@ -7,8 +7,6 @@
     --text-color: white;
 }
 
-/* #490727,#4b064a,#0e253e,#0f3e28,#3b6d0c */
-
 /* Global styles */
 body {
     font-family: Arial, sans-serif;
@@ -121,13 +119,88 @@ a.map {
 
 #map-container {
     margin-top: 10px;
-    /* background-color: var(--highlight-color); */
     border-radius: 10px;
     overflow: hidden;
 }
 
-footer {
+.slider-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    margin: 20px 0;
+}
+
+#slider-label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#year-value {
+    font-weight: bold;
+    color: var(--highlight-color);
+}
+
+#year-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 90%;  /* Made the slider longer */
+    height: 10px;
+    background: var(--highlight-color);
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#year-slider:hover {
+    opacity: 1;
+}
+
+#year-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: var(--accent-color);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#year-slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: var(--accent-color);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    color: var(--text-color);
+}
+
+
+/* Tooltip styles */
+#tooltip {
+    position: absolute;
+    text-align: center;
+    width: 120px;
+    height: auto;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.hidden {
+    display: none;
+}
+
+#charts-container {
+    display: flex; flex-wrap: wrap;
 }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voronoi Treemap</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-hierarchy.v1.min.js"></script>
+    <script src="https://d3js.org/d3-voronoi-treemap.v1.min.js"></script>
+</head>
+<body>
+    <script>
+        function transformData(data) {
+            console.log(data);
+            return {
+                name: "root",
+                children: data.map(location => ({
+                    name: location.key,
+                    children: location.values.map(sector => ({
+                        name: sector.key,
+                        value: sector.value
+                    }))
+                }))
+            };
+        }
+
+        const width = 800;
+        const height = 600;
+
+        const svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        function createVoronoiTreemap(data) {
+            const root = d3.hierarchy(transformData(data))
+                .sum(d => d.value)
+                .sort((a, b) => b.value - a.value);
+
+            const treemap = d3.treemap()
+                .size([width, height])
+                .padding(1)
+                .round(true);
+
+            treemap(root);
+
+            // Voronoi treemap
+            const voronoiTreemap = d3.voronoiTreemap()
+                .extent([[0, 0], [width, height]]);
+
+            voronoiTreemap(root);
+
+            // Draw the treemap
+            drawTreemap(root);
+        }
+        
+        function drawTreemap(root) {
+            svg.selectAll("path")
+                .data(root.leaves())
+                .enter().append("path")
+                .attr("d", d => "M" + d.polygon.join("L") + "Z")
+                .style("fill", (d, i) => d3.schemeCategory10[i % 10])
+                .style("stroke", "#fff");
+
+            svg.selectAll("text")
+                .data(root.leaves())
+                .enter().append("text")
+                .attr("x", d => d.polygon[0][0])
+                .attr("y", d => d.polygon[0][1])
+                .text(d => d.data.name)
+                .style("font-size", "10px")
+                .style("fill", "#000");
+        }
+
+        d3.csv('data/employee_sector.csv').then( (data) => {
+            console.log(transformData(data));
+        } );
+
+        
+    </script>
+</body>
+</html>

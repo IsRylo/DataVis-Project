@@ -3,27 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distribution of Employment in G7 Countries</title>
+    <title>Welcome to OECD Countries Employment and GDP Heatmap</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="map">
     <header>
         <div class="container">
-            <h1>G7 Countries Heatmap</h1>
+            <h1>Welcome to OECD Countries GDP and Employment Heatmap</h1>
             <nav>
                 <a href="index.html">Home</a>
-                <a href="map.html">GDP Heatmap</a>
+                <a href="map.html">OECD Heatmap</a>
             </nav>
         </div>
     </header>
 
     <div class="container">
-        <div id="map-container"></div>
-        <div id="slider-container">
-            <input type="range" min="2010" max="2022" value="2010" class="slider" id="year-slider">
+        <p>Explore the economic data of various countries with our interactive heatmap.</p>
+        <!-- TODO: Insert some introduction -->
+        <p>Gross Domestic Product (GDP) is a measure of the economic performance of a country. It represents the total value of all goods and services produced over a specific time period within a country's borders. In this visualization, we measure GDP by GDP per capita, which adjusts for population size and is expressed in current US dollars.</p>
+        <p>The unemployment rate is a key indicator of the labor market's health. It represents the percentage of the labor force that is unemployed and actively seeking employment. Understanding unemployment rates helps in assessing the economic stability and growth potential of a country.</p>
+        <p>Employment activity refers to the engagement of individuals in productive work. High employment levels generally indicate a strong economy and a high standard of living. This heatmap allows you to explore the relationship between GDP and employment activity across different countries over time.</p>
+
+        <!-- Slider and labels -->
+        <div class="slider-container">
+            <label for="year-slider" id="slider-label">Year: <span id="year-value">2010</span></label>
+            <input type="range" id="year-slider" min="2010" max="2022" value="2010" step="1">
+            <div class="slider-labels">
+                <span>2010</span>
+                <span>2022</span>
+            </div>
         </div>
+        <div id="charts-container">
+            <div id="map-container"></div>
+            <div id="employment-sector-chart-container"></div>
+        </div>
+        <div id="unemployment-chart-container"></div>
+        <footer>
+            <p>&copy; 2024 Loysing Ryono Ismanto and V K A Hasitha Chamodya Kuruppu</p>
+        </footer>
     </div>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <div id="tooltip" class="hidden"></div>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="js/app.js" type="module"></script>
 </body>
 </html>
