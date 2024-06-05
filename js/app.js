@@ -93,7 +93,7 @@ function drawWorldMap(geoData, gdpData, year) {
 
     updateWorldMap(geoData, gdpData, year);
 
-         // Add legend
+    // Add legend
     const legendWidth = 200;
     const legendHeight = 20;
 
