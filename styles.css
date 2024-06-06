@@ -14,7 +14,38 @@ body {
     padding: 0;
     color: var(--text-color);
 }
+.fonts{
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+  }
+  .lists {
+    columns: 4;
+    -webkit-columns: 4;
+    -moz-columns: 4;
+}
 
+.lists ul {
+    padding: 5pxs;
+    list-style: none;
+}
+
+.lists ul li {
+    margin-bottom: 10px;
+}
+.fade-in {
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 /* Header styles */
 header {
     background-color: var(--highlight-color);
