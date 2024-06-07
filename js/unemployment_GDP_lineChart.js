@@ -46,9 +46,7 @@ export function drawLineGraph(country, gdpData) {
             [2010,
             d3.max(countryGDPData, d => d.YEA)]
         )
-        .range([0, svgWidth - padding.left - padding.right]);
-        console.log(xScale.domain());
-        
+        .range([0, svgWidth - padding.left - padding.right]);        
         const yScaleGDP = d3.scaleLinear()
         .domain([0, d3.max(countryGDPData, d => +d.GDP)])
         .range([svgHeight - padding.top - padding.bottom, 0]);

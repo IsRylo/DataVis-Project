@@ -12,18 +12,14 @@
             <h1>Welcome to OECD Countries GDP and Employment Heatmap</h1>
             <nav>
                 <a href="index.html">Home</a>
-                <a href="map.html">OECD Heatmap</a>
+                <a href="map.html">Data Visualizations</a>
             </nav>
         </div>
     </header>
 
     <div class="container">
-        <p>Explore the economic data of various countries with our interactive heatmap.</p>
-        <!-- TODO: Insert some introduction -->
-        <p>Gross Domestic Product (GDP) is a measure of the economic performance of a country. It represents the total value of all goods and services produced over a specific time period within a country's borders. In this visualization, we measure GDP by GDP per capita, which adjusts for population size and is expressed in current US dollars.</p>
-        <p>The unemployment rate is a key indicator of the labor market's health. It represents the percentage of the labor force that is unemployed and actively seeking employment. Understanding unemployment rates helps in assessing the economic stability and growth potential of a country.</p>
-        <p>Employment activity refers to the engagement of individuals in productive work. High employment levels generally indicate a strong economy and a high standard of living. This heatmap allows you to explore the relationship between GDP and employment activity across different countries over time.</p>
-
+        <h3>Welcome to our interactive visualization of global GDP and unemployment rates. This tool provides a comprehensive look at the economic health of countries around the world, offering insights into how these critical indicators shape national and global economies.</h3>
+        <p>To learn how to use the visualization click <a href="#instructions" style="text-decoration: none; color: aliceblue;"><u>here</u></a></p>
         <!-- Slider and labels -->
         <div class="slider-container">
             <label for="year-slider" id="slider-label">Year: <span id="year-value">2010</span></label>
@@ -35,16 +31,47 @@
         </div>
         <div id="charts-container">
             <div id="map-container"></div>
-            <div id="employment-sector-chart-container"></div>
         </div>
         <div id="unemployment-chart-container"></div>
+        <!-- Slider and labels -->
+        <div class="slider-sector-container">
+            <label for="year-sector-slider" id="slider-sector-label">Year: <span id="year-sector-value">2010</span></label>
+            <input type="range" id="year-sector-slider" min="2010" max="2022" value="2010" step="1">
+            <div class="slider-labels">
+                <span>2010</span>
+                <span>2022</span>
+            </div>
+        </div>
+        <div id="employment-sector-chart-container">
+        </div>
+        <h2>What is GDP?</h2>
+        <p>Gross Domestic Product (GDP) is the total monetary value of all goods and services produced within a country's borders in a specific time period. It is a crucial indicator used to gauge the economic performance of a country. Higher GDP values generally indicate a healthier economy, as they reflect higher production and consumption levels. Our visualization allows you to explore GDP data across different countries, helping you understand the economic disparities and growth patterns worldwide.</p>
+        <h2>What is the Unemployment Rate?</h2>
+        <p>The unemployment rate measures the percentage of the labor force that is unemployed and actively seeking employment. It is a key indicator of economic health, as high unemployment rates can signify economic distress, while low unemployment rates suggest a thriving job market. Through our visualization, you can compare the unemployment rates of various countries, providing insights into their labor market conditions and economic stability.</p>
+        <h2>Interpreting the Visualization</h2>
+        <p><strong>Global Map:</strong> The map uses color coding to represent GDP and unemployment rates. Darker shades typically indicate higher values. You can hover over each country to see specific data points.</p>
+        <p><strong>Data Over Time:</strong> Use the slider to view how GDP and unemployment rates have changed over the years. This feature helps you track economic trends and understand long-term economic trajectories.</p>
+        <p><strong>Comparison Tool:</strong> Our tool allows you to compare multiple countries side by side, providing a clearer picture of economic differences and similarities.</p>
+        <h2>Why These Indicators Matter</h2>
+        <p>Understanding GDP and unemployment rates is essential for grasping the economic well-being of a country. These indicators influence government policy, business decisions, and individual livelihoods. By visualizing these metrics, we aim to provide a clearer understanding of global economic dynamics, facilitating informed discussions and decisions.</p>
+        <h2>How to Use This Visualization</h2>
+        <div id="instructions">
+            <p>1. <strong>Explore the Map:</strong> Click on countries to view detailed GDP and unemployment data.</p>
+        <p>2. <strong>Use the Slider:</strong> Adjust the time slider to see historical data in a larger picture.</p>
+        <p>3. <strong>View Country in Detail:</strong> Click on any country to see the unemployment trend compared to GDP and their employment activity.</p>
+        </div>
+        <p>We hope this tool enhances your understanding of global economics and sparks insightful analysis. If you have any questions or need further information, feel free to reach out.</p>
         <footer>
             <p>&copy; 2024 Loysing Ryono Ismanto and V K A Hasitha Chamodya Kuruppu</p>
         </footer>
     </div>
     <div id="tooltip" class="hidden"></div>
+    <svg id="test" width="960" height="600"></svg>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://unpkg.com/d3-interpolate-path/build/d3-interpolate-path.min.js"></script>
+    <script src="https://rawcdn.githack.com/Kcnarf/d3-weighted-voronoi/v1.1.3/build/d3-weighted-voronoi.js"></script>
+    <script src="https://rawcdn.githack.com/Kcnarf/d3-voronoi-map/v2.1.1/build/d3-voronoi-map.js"></script>
+    <script src="https://rawcdn.githack.com/Kcnarf/d3-voronoi-treemap/v1.1.2/build/d3-voronoi-treemap.js"></script>
     <script src="js/app.js" type="module"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 // import { unemployment_chart } from "./unemployment_chart";
 import { employment_sector_chart } from "./employment_sector_chart.js";
-// import { gdp_chart } from "./gdp_chart";
 import { drawLineGraph } from "./unemployment_GDP_lineChart.js";
 
 
@@ -161,21 +160,9 @@ function updateWorldMap(geoData, gdpData, year) {
         })
         .on("click", function(event, d) {
             const country = d.id; // Assuming d.id represents the country code
-            // const countryData = gdpData.find(d => d.COU === country); // Assuming COU is the country code in GDP data
-    
-            // Update container sizes on click
-            // const mapWidth = width * 0.5; // Map takes 50% of the container
-            // const mapHeight = height; // Map height remains the same
-            // const chartWidth = width * 0.25; // Each chart takes 25% of the container
-    
-            // updateContainerSizes(mapWidth, mapHeight, chartWidth);
-            // employment_sector_chart();
-
+            console.log(country);
             drawLineGraph(country, gdpData);
-    
-            // // Create the charts
-            // // createUnemploymentChart(countryData);
-            // // createEmploymentSectorChart(countryData);
+            employment_sector_chart(country, year);
         })
         .transition()
         .duration(1000)
@@ -183,24 +170,4 @@ function updateWorldMap(geoData, gdpData, year) {
             const gdp = d.properties.GDP;
             return gdp === null ? 'grey' : colorSchema(gdp);
         });
-}
-
-
-// Function to update container sizes
-function updateContainerSizes(mapWidth, mapHeight, chartWidth) {
-    d3.select("#map-container")
-        .transition()
-        .duration(500)
-        .attr("width", mapWidth)
-        .attr("height", mapHeight);
-
-    d3.select("#unemployment-chart-container")
-        .transition()
-        .duration(500)
-        .style("width", chartWidth + "%");
-
-    d3.select("#employment-sector-chart-container")
-        .transition()
-        .duration(500)
-        .style("width", chartWidth + "%");
 }

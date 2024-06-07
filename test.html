@@ -1,82 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voronoi Treemap</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://rawcdn.githack.com/Kcnarf/d3-weighted-voronoi/v1.1.3/build/d3-weighted-voronoi.js"></script>
-    <script src="https://rawcdn.githack.com/Kcnarf/d3-voronoi-map/v2.1.1/build/d3-voronoi-map.js"></script>
-    <script src="https://rawcdn.githack.com/Kcnarf/d3-voronoi-treemap/v1.1.2/build/d3-voronoi-treemap.js"></script>
+    <title>Sector Hierarchy</title>
 </head>
 <body>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
     <script>
-        function transformData(data) {
-            console.log(data);
-            return {
-                name: "root",
-                children: data.map(location => ({
-                    name: location.key,
-                    children: location.values.map(sector => ({
-                        name: sector.key,
-                        value: sector.value
-                    }))
-                }))
-            };
+        // Sample CSV Data
+        const csvData = `
+LOCATION,FREQUENCY,SECTOR_TITLE,TIME,VALUE,SECTOR_CODE
+FRA,A,Accommodation and food service activities,2012,776.325,I
+FRA,A,Employees in Services,2012,17574.53,G-U
+`;
+
+        // Convert CSV to JSON
+        function csvToJson(csv) {
+            const lines = csv.trim().split('\n');
+            const headers = lines[0].split(',');
+
+            return lines.slice(1).map(line => {
+                const data = line.split(',');
+                return headers.reduce((obj, header, index) => {
+                    obj[header] = data[index];
+                    return obj;
+                }, {});
+            });
         }
 
+        const data = csvToJson(csvData);
+
+        // Filter data by year and country code
+        const year = 2012;
+        const countryCode = 'FRA';
+        const filteredData = data.filter(d => d.TIME == year && d.LOCATION == countryCode);
+
+        // Function to build the tree
+        function buildTree(data) {
+            const tree = {};
+            const childrenMap = {};
+
+            data.forEach(d => {
+                const sectorCode = d.SECTOR_CODE;
+                const sectorTitle = d.SECTOR_TITLE;
+                const value = +d.VALUE;
+
+                if (sectorCode.length === 1) {
+                    // Single letter, lowest hierarchy
+                    tree[sectorCode] = { name: sectorTitle, value, children: [] };
+                } else {
+                    // Range of letters, parent hierarchy
+                    const [start, end] = sectorCode.split('-');
+                    for (let i = start.charCodeAt(0); i <= end.charCodeAt(0); i++) {
+                        const childCode = String.fromCharCode(i);
+                        if (!childrenMap[childCode]) {
+                            childrenMap[childCode] = [];
+                        }
+                        childrenMap[childCode].push(sectorCode);
+                    }
+                    if (!tree[sectorCode]) {
+                        tree[sectorCode] = { name: sectorTitle, value: 0, children: [] };
+                    }
+                }
+            });
+
+            // Link children to their parents and remove from root level
+            Object.keys(childrenMap).forEach(childCode => {
+                childrenMap[childCode].forEach(parentCode => {
+                    if (tree[childCode]) {
+                        tree[parentCode].children.push(tree[childCode]);
+                        delete tree[childCode];
+                    }
+                });
+            });
+
+            return tree;
+        }
+
+        const tree = buildTree(filteredData);
+        console.log(JSON.stringify(tree, null, 2));
+
+        // Function to transform the tree into a hierarchy format for D3
+        function transformTree(tree) {
+            const transformedTree = { name: 'root', children: [] };
+
+            for (const key in tree) {
+                if (tree[key].children.length > 0) {
+                    const node = { name: tree[key].name, value: tree[key].value, children: tree[key].children };
+                    transformedTree.children.push(node);
+                } else {
+                    transformedTree.children.push({ name: tree[key].name, value: tree[key].value });
+                }
+            }
+
+            return transformedTree;
+        }
+
+        const transformedTree = transformTree(tree);
+        console.log(JSON.stringify(transformedTree, null, 2));
+
+        // Visualization with D3 (simple tree layout example)
         const width = 800;
         const height = 600;
 
-        const svg = d3.select("body").append("svg")
-            .attr("width", width)
-            .attr("height", height);
+        const svg = d3.select('body')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height)
+            .append('g')
+            .attr('transform', 'translate(50,50)');
 
-        function createVoronoiTreemap(data) {
-            const root = d3.hierarchy(transformData(data))
-                .sum(d => d.value)
-                .sort((a, b) => b.value - a.value);
+        const root = d3.hierarchy(transformedTree);
 
-            const treemap = d3.treemap()
-                .size([width, height])
-                .padding(1)
-                .round(true);
+        const treeLayout = d3.tree().size([width - 100, height - 100]);
+        treeLayout(root);
 
-            treemap(root);
+        svg.selectAll('lines')
+            .data(root.links())
+            .enter()
+            .append('line')
+            .attr('x1', d => d.source.x)
+            .attr('y1', d => d.source.y)
+            .attr('x2', d => d.target.x)
+            .attr('y2', d => d.target.y)
+            .attr('stroke', 'black');
 
-            // Voronoi treemap
-            const voronoiTreemap = d3.voronoiTreemap()
-                .extent([[0, 0], [width, height]]);
+        svg.selectAll('circles')
+            .data(root.descendants())
+            .enter()
+            .append('circle')
+            .attr('cx', d => d.x)
+            .attr('cy', d => d.y)
+            .attr('r', 5)
+            .attr('fill', 'red');
 
-            voronoiTreemap(root);
-
-            // Draw the treemap
-            drawTreemap(root);
-        }
-        
-        function drawTreemap(root) {
-            svg.selectAll("path")
-                .data(root.leaves())
-                .enter().append("path")
-                .attr("d", d => "M" + d.polygon.join("L") + "Z")
-                .style("fill", (d, i) => d3.schemeCategory10[i % 10])
-                .style("stroke", "#fff");
-
-            svg.selectAll("text")
-                .data(root.leaves())
-                .enter().append("text")
-                .attr("x", d => d.polygon[0][0])
-                .attr("y", d => d.polygon[0][1])
-                .text(d => d.data.name)
-                .style("font-size", "10px")
-                .style("fill", "#000");
-        }
-
-        d3.csv('data/employee_sector.csv').then( (data) => {
-            console.log(transformData(data));
-        } );
-
-        
+        svg.selectAll('text')
+            .data(root.descendants())
+            .enter()
+            .append('text')
+            .attr('x', d => d.x)
+            .attr('y', d => d.y)
+            .attr('dy', -10)
+            .attr('text-anchor', 'middle')
+            .text(d => d.data.name);
     </script>
 </body>
 </html>
